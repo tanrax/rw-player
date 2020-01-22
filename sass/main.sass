@@ -1,0 +1,121 @@
+.rw-player
+  #siri-container
+    background-color: #202136
+    canvas
+      width: 100%
+  div
+    &.control-container
+      margin-top: 10px
+      padding-bottom: 10px
+
+      div
+        &.amplitude-play-pause
+          width: 74px
+          height: 74px
+          cursor: pointer
+          float: left
+          margin-left: 10px
+
+          &.amplitude-paused
+            background: url("https://521dimensions.com/img/open-source/amplitudejs/examples/single-song/play.svg")
+            background-size: cover
+
+          &.amplitude-playing
+            background: url("https://521dimensions.com/img/open-source/amplitudejs/examples/single-song/pause.svg")
+            background-size: cover
+
+        &.meta-container
+          float: left
+          width: calc(100% - 84px)
+          text-align: center
+          color: white
+          margin-top: 10px
+
+          span
+            &[data-amplitude-song-info="name"]
+              font-family: "Open Sans", sans-serif
+              font-size: 18px
+              color: #fff
+              display: block
+              padding: 0 1rem
+
+            &[data-amplitude-song-info="artist"]
+              font-family: "Open Sans", sans-serif
+              font-weight: 100
+              font-size: 14px
+              color: #fff
+              display: block
+
+      &:after
+        content: ""
+        display: table
+        clear: both
+
+    &.time-container
+      opacity: 0.5
+      font-family: 'Open Sans'
+      font-weight: 100
+      font-size: 12px
+      color: #fff
+      height: 15px
+
+      span
+        &.current-time
+          float: left
+          margin-left: 5px
+
+        &.duration
+          float: right
+          margin-right: 5px
+
+  progress
+    &.amplitude-song-played-progress
+      background-color: #313252
+      -webkit-appearance: none
+      appearance: none
+      width: 100%
+      height: 12px
+      display: block
+      cursor: pointer
+      border: none
+
+      &:not([value])
+        background-color: #313252
+
+    &[value]
+      &::-webkit-progress-bar
+        background-color: #313252
+
+      &::-moz-progress-bar, &::-webkit-progress-value
+        background-color: #00a0ff
+
+  div
+    &.bottom-container
+      background-color: #202136
+
+    &#single-song-player
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5)
+      width: 100%
+      max-width: 460px
+      -webkit-font-smoothing: antialiased
+
+      img[data-amplitude-song-info="cover_art_url"]
+        width: 100%
+        background-color: #202136
+        border-top-right-radius: 10px
+        border-top-left-radius: 10px
+        object-fit: cover
+        height: 10rem
+
+  a.learn-more
+    display: block
+    width: 300px
+    margin: auto
+    margin-top: 30px
+    text-align: center
+    color: white
+    text-decoration: none
+    background-color: #202136
+    font-family: "Lato", sans-serif
+    padding: 20px
+    font-weight: 100

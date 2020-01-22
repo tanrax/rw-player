@@ -3,12 +3,15 @@
     <head>
         <meta charset="UTF-8"/>
         <title>Player RW</title>
-        <link rel="stylesheet" href="css/single-song-player.css"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="sass/main.sass"> 
     </head>
     <body>
-        <audio src="" id="player"></audio>
-
-        <div id="single-song-player">
+        <section class="rw-player">
+          <!-- Audio player -->
+          <audio src="" id="player"></audio>
+          <!-- Custom controls -->
+          <div id="single-song-player">
             <div id="siri-container"></div>
             <div class="bottom-container">
               <progress class="amplitude-song-played-progress" id="song-played-progress"></progress>
@@ -31,7 +34,7 @@
               </div>
             </div>
           </div>
-
-        <script src="ts/main.ts"></script>
+          <script src="ts/main.ts"></script>
+        </section>
     </body>
 </html>
