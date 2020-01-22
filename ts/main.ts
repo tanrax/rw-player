@@ -1,0 +1,87 @@
+// Imports
+import axios from "../node_modules/axios"
+import Amplitude from "../node_modules/amplitudejs"
+import SiriWave from "../node_modules/siriwave";
+
+// Variables
+const URL_API: string = 'http://republicaweb.es/wp-json/ssp/v1/episodes/'
+const COVER = 'https://republicaweb.es/wp-content/themes/republica/dist/images/logo-republica-web-v2.png'
+let lastEpisode: object = undefined
+let mySiriWare = undefined
+
+// Funcions
+
+function start(): void {
+    axios.get(URL_API)
+        .then(function (response) {
+            // handle success
+            lastEpisode = response.data[0];
+            //document.querySelector('#player').setAttribute('src', lastEpisode.meta.audio_file)
+            startPlayer(
+                lastEpisode["title"].rendered,
+                "test",
+                lastEpisode["meta"].audio_file,
+                COVER
+                )
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
+}
+
+function startPlayer(name: string, episode: string, url: string, cover: string): void {
+    // Init Amplitude (custom audio player)
+    Amplitude.init({
+        "bindings": {
+            37: 'prev',
+            39: 'next',
+            32: 'play_pause'
+        },
+		"songs": [
+			{
+				"name": name,
+				"artist": "República Web",
+				"album": episode,
+				"url": url,
+				"cover_art_url": cover
+			}
+        ],
+        "callbacks": {
+            'pause': function() {
+                mySiriWare.setAmplitude(0)
+            },
+            'playing': function() {
+                mySiriWare.setAmplitude(3)
+            },
+            'ended': function() {
+                mySiriWare.setAmplitude(0)
+            }
+        }
+    });
+    // Init progressbar
+    handlesProgressbar()
+    // Init Way
+    mySiriWare = new SiriWave({
+	    container: document.getElementById('siri-container'),
+        height: 130,
+        autostart: true,
+        style: 'ios9',
+        amplitude: 0
+    })
+}
+
+function handlesProgressbar(): void {
+    window.onkeydown = function(e) {
+      return !(e.keyCode == 32);
+    };
+    document.getElementById('song-played-progress').addEventListener('click', function( e ) {
+        let offset = this.getBoundingClientRect()
+        let x = e.pageX - offset.left
+
+        Amplitude.setSongPlayedPercentage( ( parseFloat( x ) / parseFloat( this.offsetWidth) ) * 100 );
+    })
+}
+
+// Init
+start()
