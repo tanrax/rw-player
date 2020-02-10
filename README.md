@@ -22,5 +22,5 @@ parcel build index.html --out-dir rw-player --no-source-maps  --public-url https
 # Web
 
 ```html
-<iframe width="100%" height="400" src="https://cdn.jsdelivr.net/gh/tanrax/rw-player/dist/index.html" frameborder="0"></iframe> 
+<iframe width="100%" height="400" src="https://programadorwebvalencia.com/rw-player/" frameborder="0"></iframe> 
 ```
