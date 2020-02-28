@@ -69,9 +69,6 @@ function startPlayer(name: string, episode: string, url: string, cover: string):
 }
 
 function handlesProgressbar(): void {
-    window.onkeydown = function(e) {
-      return !(e.keyCode == 32);
-    };
     mySongPlayerdProgress.addEventListener('click', function( e ) {
         let offset = this.getBoundingClientRect()
         let x: string = (e.pageX - offset.left).toString()
