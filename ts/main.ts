@@ -9,6 +9,7 @@ const COVER = 'img/logo-republica-web-v2.png'
 let lastEpisode: object = undefined
 let mySiriWare = undefined
 let mySongPlayerdProgress = document.getElementById('song-played-progress')
+let siriContainer = document.getElementById('siri-container')
 
 // Funcions
 
@@ -32,13 +33,16 @@ function start(): void {
 }
 
 function startPlayer(name: string, episode: string, url: string, cover: string): void {
+    // Init Way
+    mySiriWare = new SiriWave({
+	    container: siriContainer,
+        height: 100,
+        autostart: true,
+        style: 'ios9',
+        amplitude: 0
+    })
     // Init Amplitude (custom audio player)
     Amplitude.init({
-        "bindings": {
-            37: 'prev',
-            39: 'next',
-            32: 'play_pause'
-        },
 		"songs": [
 			{
 				"name": name,
@@ -62,14 +66,6 @@ function startPlayer(name: string, episode: string, url: string, cover: string):
     });
     // Init progressbar
     handlesProgressbar()
-    // Init Way
-    mySiriWare = new SiriWave({
-	    container: document.getElementById('siri-container'),
-        height: 130,
-        autostart: true,
-        style: 'ios9',
-        amplitude: 0
-    })
 }
 
 function handlesProgressbar(): void {
