@@ -1,13 +1,14 @@
 // Imports
 import axios from "../node_modules/axios"
 import Amplitude from "../node_modules/amplitudejs"
-import SiriWave from "../node_modules/siriwave";
+import SiriWave from "../node_modules/siriwave"
 
 // Variables
 const URL_API: string = 'http://republicaweb.es/wp-json/ssp/v1/episodes/'
-const COVER = 'https://republicaweb.es/wp-content/themes/republica/dist/images/logo-republica-web-v2.png'
+const COVER = 'img/logo-republica-web-v2.png'
 let lastEpisode: object = undefined
 let mySiriWare = undefined
+let mySongPlayerdProgress = document.getElementById('song-played-progress')
 
 // Funcions
 
@@ -15,8 +16,8 @@ function start(): void {
     axios.get(URL_API)
         .then(function (response) {
             // handle success
-            lastEpisode = response.data[0];
-            //document.querySelector('#player').setAttribute('src', lastEpisode.meta.audio_file)
+            lastEpisode = response.data[0]
+            document.querySelector('#player').setAttribute('src', lastEpisode.meta.audio_file)
             startPlayer(
                 lastEpisode["title"].rendered,
                 "test",
@@ -75,11 +76,11 @@ function handlesProgressbar(): void {
     window.onkeydown = function(e) {
       return !(e.keyCode == 32);
     };
-    document.getElementById('song-played-progress').addEventListener('click', function( e ) {
+    mySongPlayerdProgress.addEventListener('click', function( e ) {
         let offset = this.getBoundingClientRect()
-        let x = e.pageX - offset.left
+        let x: string = (e.pageX - offset.left).toString()
 
-        Amplitude.setSongPlayedPercentage( ( parseFloat( x ) / parseFloat( this.offsetWidth) ) * 100 );
+        Amplitude.setSongPlayedPercentage( ( parseFloat( x ) / parseFloat( mySongPlayerdProgress.offsetWidth.toString()) ) * 100 )
     })
 }
 

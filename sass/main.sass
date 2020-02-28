@@ -1,4 +1,6 @@
 .rw-player
+  > img.preload
+    display: none
   #siri-container
     background-color: #202136
     canvas
@@ -17,11 +19,11 @@
           margin-left: 10px
 
           &.amplitude-paused
-            background: url("https://521dimensions.com/img/open-source/amplitudejs/examples/single-song/play.svg")
+            background: url("../img/play.svg")
             background-size: cover
 
           &.amplitude-playing
-            background: url("https://521dimensions.com/img/open-source/amplitudejs/examples/single-song/pause.svg")
+            background: url("../img/pause.svg")
             background-size: cover
 
         &.meta-container
