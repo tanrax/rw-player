@@ -17,8 +17,9 @@
           <div id="single-song-player">
             <div id="siri-container"></div>
             <div class="bottom-container">
+              <!-- Progress -->
               <progress class="amplitude-song-played-progress" id="song-played-progress"></progress>
-
+              <!-- Duration -->
               <div class="time-container">
                 <span class="current-time">
                   <span class="amplitude-current-minutes"></span>:<span class="amplitude-current-seconds"></span>
@@ -27,16 +28,18 @@
                   <span class="amplitude-duration-minutes"></span>:<span class="amplitude-duration-seconds"></span>
                 </span>
               </div>
-
               <div class="control-container">
+                <!-- Button Play pause -->
                 <div class="amplitude-play-pause" id="play-pause"></div>
                 <div class="meta-container">
+                  <!-- Info -->
                   <span data-amplitude-song-info="name" class="song-name"></span>
                   <span data-amplitude-song-info="artist"></span>
                 </div>
               </div>
             </div>
           </div>
+          <!-- Cache -->
           <img src="img/play.svg" alt="play cache" class="preload">
           <img src="img/pause.svg" alt="play cache" class="preload">
           <img src="img/themes/programadorwebvalencia/play.svg" alt="play cache" class="preload">

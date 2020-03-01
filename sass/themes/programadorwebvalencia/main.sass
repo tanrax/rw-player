@@ -5,11 +5,18 @@
     $color-black: #000
     #siri-container
         background: $color-orange
-    progress.amplitude-song-played-progress
-        background-color: $color-white
-        border-bottom: $border-size solid $color-orange
-        &::-moz-progress-bar, &::-webkit-progress-value 
-            background: lighten($color-orange, 20%)
+    progress
+        &.amplitude-song-played-progress
+            background-color: $color-white
+            border-bottom: $border-size solid $color-orange
+            color: lighten($color-orange, 20%) !important
+    #song-played-progress
+        &::-webkit-progress-bar
+            background-color: $color-white !important
+        &::-moz-progress-bar
+            background-color: lighten($color-orange, 20%) !important
+        &::-webkit-progress-value
+            background-color: lighten($color-orange, 20%) !important
     div
         &#single-song-player
             box-shadow: initial
@@ -22,7 +29,7 @@
             width: calc(100% - #{$border-size * 2} )
         &.control-container
             div.amplitude-paused
-                background: url("/img/themes/programadorwebvalencia/play.svg") !important
+                background-image: url("/img/themes/programadorwebvalencia/play.svg") !important
                 background-size: cover !important
             div.amplitude-playing
                 background: url("/img/themes/programadorwebvalencia/pause.svg") !important
@@ -30,4 +37,4 @@
             div.meta-container
                 span[data-amplitude-song-info="artist"],
                 span[data-amplitude-song-info="name"]
-                    color:     $color-black
+                    color: $color-black
