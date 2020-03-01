@@ -4,10 +4,9 @@ import Amplitude from "../node_modules/amplitudejs"
 import SiriWave from "../node_modules/siriwave"
 
 // Variables
-const URL_API: string = 'http://republicaweb.es/wp-json/ssp/v1/episodes/'
+const URL_API: string = 'https://republicaweb.es/wp-json/ssp/v1/episodes/'
 const COVER = 'img/logo-republica-web-v2.png'
 let lastEpisode: object = undefined
-let mySiriWare = undefined
 let mySongPlayerdProgress = document.getElementById('song-played-progress')
 let siriContainer = document.getElementById('siri-container')
 
@@ -34,7 +33,7 @@ function start(): void {
 
 function startPlayer(name: string, episode: string, url: string, cover: string): void {
     // Init Way
-    mySiriWare = new SiriWave({
+    let mySiriWare = new SiriWave({
 	    container: siriContainer,
         height: 100,
         autostart: true,
