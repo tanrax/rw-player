@@ -3,22 +3,31 @@
     $color-white: #fff
     $color-orange: #f7b143
     $color-black: #000
-    div#single-song-player
-        box-shadow: initial
     #siri-container
         background: $color-orange
     progress.amplitude-song-played-progress
         background-color: $color-white
-        border: $border-size solid $color-orange
-        width: calc(100% - #{$border-size * 2} )
-    div.time-container
-        color: $color-black
-        display: none
-    div.bottom-container
-        background-color: $color-white
-        border: $border-size solid $color-orange
-        width: calc(100% - #{$border-size * 2} )
-    div.control-container div.meta-container
-        span[data-amplitude-song-info="name"],
-        span[data-amplitude-song-info="artist"]
+        border-bottom: $border-size solid $color-orange
+        &::-moz-progress-bar, &::-webkit-progress-value 
+            background: lighten($color-orange, 20%)
+    div
+        &#single-song-player
+            box-shadow: initial
+        &.time-container
             color: $color-black
+            display: none
+        &.bottom-container
+            background-color: $color-white
+            border: $border-size solid $color-orange
+            width: calc(100% - #{$border-size * 2} )
+        &.control-container
+            div.amplitude-paused
+                background: url("/img/themes/programadorwebvalencia/play.svg") !important
+                background-size: cover !important
+            div.amplitude-playing
+                background: url("/img/themes/programadorwebvalencia/pause.svg") !important
+                background-size: cover !important
+            div.meta-container
+                span[data-amplitude-song-info="artist"],
+                span[data-amplitude-song-info="name"]
+                    color:     $color-black
