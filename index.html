@@ -7,43 +7,20 @@
         <script defer src="ts/main.ts"></script>
         <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
         <link rel="stylesheet" href="sass/main.sass"> 
-        <link rel="stylesheet" href="sass/themes/programadorwebvalencia/main.sass"> 
     </head>
     <body>
-        <section class="rw-player">
-          <!-- Audio player -->
-          <audio src="" id="player"></audio>
-          <!-- Custom controls -->
-          <div id="single-song-player">
-            <div id="siri-container"></div>
-            <div class="bottom-container">
-              <!-- Progress -->
-              <progress class="amplitude-song-played-progress" id="song-played-progress"></progress>
-              <!-- Duration -->
-              <div class="time-container">
-                <span class="current-time">
-                  <span class="amplitude-current-minutes"></span>:<span class="amplitude-current-seconds"></span>
-                </span>
-                <span class="duration">
-                  <span class="amplitude-duration-minutes"></span>:<span class="amplitude-duration-seconds"></span>
-                </span>
-              </div>
-              <div class="control-container">
-                <!-- Button Play pause -->
-                <div class="amplitude-play-pause" id="play-pause"></div>
-                <div class="meta-container">
-                  <!-- Info -->
-                  <span data-amplitude-song-info="name" class="song-name"></span>
-                  <span data-amplitude-song-info="artist"></span>
-                </div>
-              </div>
-            </div>
+        <section id="rw-player" class="rw-player">
+          <!-- Player -->
+          <div class="rw-player__header">
+            <img src="img/vinilo.png" alt="vinilo" class="rw-player__vinilo">
+            <img src="img/aguja.png" alt="aguja" class="rw-player__aguja">
+            <a href="" class="rw-player__mas-discos">+ discos</a>
           </div>
-          <!-- Cache -->
-          <img src="img/play.svg" alt="play cache" class="preload">
-          <img src="img/pause.svg" alt="play cache" class="preload">
-          <img src="img/themes/programadorwebvalencia/play.svg" alt="play cache" class="preload">
-          <img src="img/themes/programadorwebvalencia/pause.svg" alt="pause cache" class="preload">
+          <progress class="rw-player__progress"></progress>
+          <div class="rw-player__footer">
+            <div class="rw-player__title"></div>
+            <div class="rw-player__republica-web">República Web</div>
+          </div>
         </section>
     </body>
 </html>
